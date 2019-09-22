@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+#include "StackArray.hpp"
+
+bool StackArray::push(int x) {
+    if(top >= (MAX - 1)) {
+        cout << "Stack overflow!";
+        return false;
+    } else {
+        a[++top] = x;
+        cout << "Pushd into stack \n";
+        return true;
+    }
+}
+
+int StackArray::pop() {
+    if(top < 0) {
+        cout << "Stack underflow!";
+        return 0;
+    } else {
+        int x = a[top--];
+        return x;
+    }
+}
+
+int StackArray::peek() {
+    if(top < 0) {
+        cout << "Stack is empty";
+        return 0;
+    } else {
+        int x = a[top];
+        return x;
+    }
+}
+
+bool StackArray::isEmpty() {
+    return (top < 0);
+}
+
+// int main() {
+//     class StackArray s;
+//     s.push(10);
+//     s.push(20);
+//     s.push(30);
+//     cout << s.pop() << " Poppped from stack\n";
+// }
