@@ -1,3 +1,7 @@
+# Reference links:
+# https://www.codeproject.com/Articles/1184735/Quick-Start-to-Use-Visual-Studio-Code-for-Cplusplu
+# http://neyasystems.com/an-engineers-guide-to-unit-testing-cmake-and-boost-unit-tests/
+
 cmake_minimum_required (VERSION 3.5)
 project(DSPractice)
 
