@@ -37,11 +37,3 @@ int StackArray::peek() {
 bool StackArray::isEmpty() {
     return (top < 0);
 }
-
-// int main() {
-//     class StackArray s;
-//     s.push(10);
-//     s.push(20);
-//     s.push(30);
-//     cout << s.pop() << " Poppped from stack\n";
-// }
