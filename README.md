@@ -27,16 +27,29 @@ You may need to restart VSCode for all extensions to work properly
 # Installation
 
 ## Configure CMake
-1. Press ```CTRL + Shift + P``` to enable the "Command Palette" and type ```cmake```
+1. Press ```CTRL + Shift + P``` to enable the "Command Palette" and type ```cmake```    
 
-2. Choose ```CMake:Configure``` for the first time. You may need to select your default compiler (e.g. GCC)
+![alt text](./docs/command_palette.png?raw=true) 
+
+2. Choose ```CMake:Configure``` for the first time. 
+
+3. Choose ```Debug``` for now. You may need to select a default compiler (e.g. GCC) as well. 
+
+![alt text](./docs/cmake_configure.png?raw=true) 
+
 
 ## Build
-1. Press ```CTRL + Shift + P``` once again to bring up the "Command Palette" and type ```cmake```
+1. Press ```CTRL + Shift + P``` once again to bring up the "Command Palette" and type ```cmake```   
 
-2. Choose ```CMake:Build``` 
+2. Choose ```CMake:Build```   
+
+![alt text](./docs/cmake_build.png?raw=true) 
+
 
 ## Run Tests
 1. Press ```CTRL + Shift + P``` once again to bring up the "Command Palette" and type ```cmake```
 
-2. Choose ```CMake:Run tests``` 
+2. Choose ```CMake:Run tests```    
+
+![alt text](./docs/cmake_run_tests.png?raw=true) 
+
