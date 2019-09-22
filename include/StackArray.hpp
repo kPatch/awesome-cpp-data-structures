@@ -5,7 +5,8 @@ class StackArray {
 
     public:
         int a[MAX];
-        StackArray() { top = 1; }
+        // StackArray() { top = 1; }
+        StackArray():top(1){};
         bool push(int x);
         int pop();
         int peek();

@@ -9,7 +9,7 @@ bool StackArray::push(int x) {
         return false;
     } else {
         a[++top] = x;
-        cout << "Pushd into stack \n";
+        cout << "Pushed into stack \n";
         return true;
     }
 }
