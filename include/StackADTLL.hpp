@@ -11,9 +11,9 @@ class NodeADTLL {
 };
 
 template <typename T>
-class StackADTLL{
+class StackADTLL {
     private:
-        NodeADTLL<T> *tos;
+        NodeADTLL<T> *tos;  // Top of stack
     public:
         StackADTLL():tos(nullptr){};
         ~StackADTLL(){
@@ -29,11 +29,11 @@ class StackADTLL{
             tos= nullptr;
             NodeADTLL<T>* temp = actual.tos;
             NodeADTLL<T>* bottom;
-            while(temp != nullptr){
-                if(tos == nullptr){
+            while(temp != nullptr) {
+                if(tos == nullptr) {
                     tos = new NodeADTLL<T>(temp->data);
                     bottom = tos;
-                }else{
+                } else {
                     bottom->next = new NodeADTLL<T>(temp->data);
                     bottom = bottom->next;
                 }
@@ -41,7 +41,7 @@ class StackADTLL{
             }
         }
 
-        void Swap(StackADTLL<T>& rhs){
+        void Swap(StackADTLL<T>& rhs) {
             NodeADTLL<T>* temp = tos;
             tos = rhs.tos;
             rhs.tos = temp;
@@ -52,14 +52,17 @@ class StackADTLL{
             return *this;
         }
 
-        void push(const T& item){
+        bool isEmpty() {
+            return tos == nullptr;
+        }
+
+        void push(const T& item) {
             NodeADTLL<T>* temp = new NodeADTLL<T>(item);
             temp->next = tos;
             tos = temp;
         }
 
-        bool isEmpty(){return tos == nullptr;};
-        T pop(){
+        T pop() {
             assert(!isEmpty());
             T result = tos->data;
             NodeADTLL<T>* temp = tos;
