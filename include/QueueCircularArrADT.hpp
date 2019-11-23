@@ -79,7 +79,7 @@ class Queue {
                 i = (i + 1) % MAX_CAPACITY;
             }
 
-            if(!isEmpty() && isFull()) {
+            if(!isEmpty() && head != tail) {
                 std::cout << q[tail] << std::endl;
             }
         }
