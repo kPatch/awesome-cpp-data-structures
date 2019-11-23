@@ -39,6 +39,21 @@ class String {
             str[0] = '\0';
         }
 
+        String(const char* str_char) {
+            int i = 0;
+            while(str_char[i] != '\0') {
+                i++;
+            }
+            length = i;
+            str = new char[length + 1];
+            capacity = length;
+
+            for(int j = 0; j < length; j++) {
+                str[j] = str_char[j];
+            }
+            str[length] = '\0';
+        }
+
         String(const String& actual) {
             length = actual.length;
             capacity = actual.capacity;
@@ -101,5 +116,5 @@ class String {
 
             return result;
         }
-}
+};
 
