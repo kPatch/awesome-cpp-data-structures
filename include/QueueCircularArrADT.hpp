@@ -39,13 +39,14 @@ class Queue {
          * Queue, push to the tail
          */
         void push(const T& item){
-            assert(!isFull());
             if(isEmpty()) {         // 1. If the queue is empty
                 head = tail = 0;    // 2. Initialize the pointers
+                q[tail] = item;
+            } else {
+                assert(!isFull());
+                tail = (tail + 1) % MAX_CAPACITY;   //3. Advance the tail pointer
+                q[tail] = item;                     // 4. Allocate the item 
             }
-
-            q[tail] = item;         // 3. Allocate the item
-            tail = (tail + 1) % MAX_CAPACITY;   //4. Advance the tail pointer
         }
 
         /**
@@ -63,12 +64,12 @@ class Queue {
             } else {
                 head = (head + 1) % MAX_CAPACITY;
             }
-            return restult;
+            return result;
         }
 
         void printList() {
             int i = head;
-            while(i !== tail) {
+            while(i != tail) {
                 std::cout << q[i] << std::endl;
                 i = (i + 1) % MAX_CAPACITY;
             }
