@@ -119,7 +119,7 @@ class List{
          * Insert value after a given iterator node
          * There are 3 possible scenarios
          * (1) List is empty
-         * (2) The iterator/pointer is at the tail
+         * (2) The iterator/pointer is at the TAIL
          * (3) Insert in between
          */
         void insertAfter(const T& item,Itr<T> ptr) {
@@ -141,6 +141,13 @@ class List{
             }
         }
 
+        /**
+         * Insert value after a given iterator node
+         * There are 3 possible scenarios
+         * (1) List is empty
+         * (2) The iterator/pointer is at the HEAD
+         * (3) Insert in between
+         */
         void insertBefore(const T& item, Itr<T> ptr) {
             if(beginning == nullptr) {
                 beginning = new Node<T>(item);
@@ -149,7 +156,8 @@ class List{
                 if(ptr == beginning) {
                     beginning->prev = new Node<T>(item); // used to point to nullptr
                     beginning->prev->next = beginning;
-                    beginning = beginning->next;
+                    // beginning = beginning->next; // FIXED
+                    beginning = beginning->prev;
                 } else {
                     Node<T>* temp = new Node<T>(item);
                     temp->prev = ptr->prev;
@@ -160,18 +168,24 @@ class List{
             }
         }
 
+        /**
+         * Remove node pointed by iterator
+         * There are 3 possible cases:
+         * (1) Head
+         * (2) Tail
+         * (3) In Between
+         */
         void remove(Itr<T> ptr) {
             if(ptr == beginning) {
                 beginning = beginning->next;
-                beginning->prev = nullptr;
+                beginning->prev = nullptr;  // New HEAD node's "prev" point should be "nullptr"
             } else if(ptr == ending) {
                 ending = ending->prev;
-                ending->next = nullptr;
+                ending->next = nullptr;     // New TAIL node's "next" point should be "nullptr"
             } else {
                 ptr->prev->next = ptr->next;
                 ptr->next->prev = ptr-> prev;
             }
-
             delete ptr.operator->();
         }
 
@@ -183,7 +197,7 @@ class List{
             return Itr<T>(beginning);
         }
 
-        Itr<T> end() {
+        Itr<T> end() {prev
             return Itr<T>(ending);
         }
         const Itr<T> end()const {
@@ -224,9 +238,5 @@ class List{
             return pos;
         }
 };
-
-
-
-
 
 #endif //ALL_DLL_H
