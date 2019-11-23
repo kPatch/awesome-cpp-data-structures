@@ -70,7 +70,7 @@ class Queue {
             int i = head;
             while(i !== tail) {
                 std::cout << q[i] << std::endl;
-                i++;
+                i = (i + 1) % MAX_CAPACITY;
             }
         }
 
