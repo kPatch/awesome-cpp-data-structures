@@ -68,7 +68,7 @@ class Queue {
         // NOTE: No 'delete[]' is required
         // since 'T q[MAX_CAPACITY]' was created on the stack,
         // not on the heap using the keyword 'new'.
-        // Hence, not need for destructor.
+        // Hence, no need for destructor.
         // ~Queue() { }
 };
 
