@@ -1,3 +1,5 @@
+#ifndef ADT_STACK_LL
+#define ADT_STACK_LL
 #include <cassert>
 
 template <typename T>
@@ -6,7 +8,7 @@ class NodeADTLL {
         T data;
         NodeADTLL<T> *next;
 
-        NodeADTLL():next(nullptr){}  // Empty contructor
+        NodeADTLL():data(), next(nullptr){}  // Empty contructor
         NodeADTLL(const T& item):data(item), next(nullptr){} // Initialize "data" member with contents of "item"
 };
 
@@ -16,19 +18,11 @@ class StackADTLL {
         NodeADTLL<T> *tos;  // Top of stack
     public:
         StackADTLL():tos(nullptr){};
-        ~StackADTLL(){
-            NodeADTLL<T>* temp;
-            while(tos != nullptr){
-                temp = tos;
-                delete temp;
-                tos = tos->next;
-            }
-        }
 
         StackADTLL(const StackADTLL<T>& actual){
-            tos= nullptr;
-            NodeADTLL<T>* temp = actual.tos;
-            NodeADTLL<T>* bottom;
+            tos = nullptr;
+            NodeADTLL<T>* temp = actual.tos; // Iterator - used to iterator throught 'actual'
+            NodeADTLL<T>* bottom;           // Last node copied
             while(temp != nullptr) {
                 if(tos == nullptr) {
                     tos = new NodeADTLL<T>(temp->data);
@@ -38,6 +32,22 @@ class StackADTLL {
                     bottom = bottom->next;
                 }
                 temp = temp->next;
+            }
+        }
+
+        ~StackADTLL(){
+            // NodeADTLL<T>* temp;
+            // while(tos != nullptr){
+            //     temp = tos;
+            //     delete temp;
+            //     tos = tos->next;
+            // }
+
+            NodeADTLL<T>* temp = tos;
+            while(tos != nullptr){
+                tos = tos->next;
+                delete temp;
+                temp = tos;
             }
         }
 
@@ -57,9 +67,9 @@ class StackADTLL {
         }
 
         void push(const T& item) {
-            NodeADTLL<T>* temp = new NodeADTLL<T>(item);
-            temp->next = tos;
-            tos = temp;
+            NodeADTLL<T>* temp = new NodeADTLL<T>(item);    // Create new node
+            temp->next = tos;                               // Point 'next' pointer to curren 'tos'
+            tos = temp;                                     // Set new node as 'tos'
         }
 
         T pop() {
@@ -71,3 +81,5 @@ class StackADTLL {
             return result;
         }
 };
+
+#endif ADT_STACK_LL
