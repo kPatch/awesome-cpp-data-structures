@@ -197,7 +197,7 @@ class List{
             return Itr<T>(beginning);
         }
 
-        Itr<T> end() {prev
+        Itr<T> end() {
             return Itr<T>(ending);
         }
         const Itr<T> end()const {
