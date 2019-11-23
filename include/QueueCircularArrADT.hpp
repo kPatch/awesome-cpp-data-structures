@@ -69,6 +69,11 @@ class Queue {
 
         void printList() {
             int i = head;
+
+            if(head == tail) {
+                std::cout << q[head] << std::endl;
+            }
+
             while(i != tail) {
                 std::cout << q[i] << std::endl;
                 i = (i + 1) % MAX_CAPACITY;
