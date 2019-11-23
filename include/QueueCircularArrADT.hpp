@@ -19,8 +19,8 @@ class Queue {
         Queue():head(-1), tail(-1){};
 
         /**
-         * isEmpty, is both the head and tail pointers,
-         * are invalid indices.
+         * isEmpty, if both the head and tail pointers,
+         * are invalid indices (-1).
          */
         bool isEmpty() {
             return head == -1 && tail == -1;
@@ -48,7 +48,8 @@ class Queue {
         }
 
         /**
-         * Queue, is FIFO
+         * Queue, is FIFO - First In First Out
+         * Means pop from head.
          * Two cases:
          * (1) We remove from a list of more than 1 items
          * (2) We remove from a list with 1 item
