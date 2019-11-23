@@ -82,4 +82,4 @@ class StackADTLL {
         }
 };
 
-#endif ADT_STACK_LL
+#endif //ADT_STACK_LL
