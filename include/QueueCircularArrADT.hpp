@@ -1,6 +1,7 @@
 #ifndef MY_CIRCULAR_QUEUE
 #define MY_CIRCULAR_QUEUE
 
+#include <iostream> // Only needed to test with print statement
 #include <cassert>
 
 template <typename T>
@@ -63,6 +64,14 @@ class Queue {
                 head = (head + 1) % MAX_CAPACITY;
             }
             return restult;
+        }
+
+        void printList() {
+            int i = head;
+            while(i !== tail) {
+                std::cout << q[i] << std::endl;
+                i++;
+            }
         }
 
         // NOTE: No 'delete[]' is required
