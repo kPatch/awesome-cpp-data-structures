@@ -70,15 +70,13 @@ class Queue {
         void printList() {
             int i = head;
             while(i != tail) {
-                i = (i + 1) % MAX_CAPACITY;
                 std::cout << q[i] << std::endl;
-                
+                i = (i + 1) % MAX_CAPACITY;
             }
-            
+
             if(!isEmpty() && isFull()) {
                 std::cout << q[tail] << std::endl;
             }
-
         }
 
         // NOTE: No 'delete[]' is required
